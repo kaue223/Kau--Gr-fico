@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualidade de Sono</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #83c9f5; /* Cor secundária */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #050642; /* Cor principal */
+            margin-bottom: 20px;
+        }
+
+        .texto-importancia {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(5, 26, 85); /* Fundo leve */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 4px 8px rgba(45, 58, 241, 0.2); /* Sombra */
+            color: #ffffff; /* Cor do texto */
+            font-size: 1.1em; /* Tamanho da fonte */
+            line-height: 1.5; /* Espaçamento entre linhas */
+            max-width: 800px; /* Largura máxima */
+        }
+
+        .grafico {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: hsl(228, 88%, 10%); /* Cor terciária */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Qualidade de Sono</h1>
+
+    <p class="texto-importancia">
+        <strong>A qualidade do sono é essencial para o bem-estar físico e mental.</strong> Um sono adequado ajuda a manter o equilíbrio do corpo, melhora a concentração, a memória e o desempenho diário. Além disso, ele fortalece o sistema imunológico, regula o humor e contribui para a saúde cardiovascular. A falta de sono ou a baixa qualidade dele pode resultar em problemas como estresse, fadiga, baixa produtividade e aumento do risco de doenças. Priorizar um sono de qualidade é fundamental para melhorar a qualidade de vida e a saúde geral. 
+        <br><br>
+   
+
+    <div class="grafico" id="graficoFuncionarios"></div>
+    <div class="grafico" id="graficoBrasileiros"></div>
+
+    <footer>
+        Developed by Kauê Brunatto
+    </footer>
+
+    <script>
+        // Dados para Funcionários do Maria Luiza
+        const dadosFuncionarios = {
+            x: ['Mais de 8 horas', 'Menos de 5 horas', '5 a 6 horas', '7 a 8 horas'],
+            y: [0, 2, 11, 12],
+            type: 'bar',
+            name: 'Funcionários do Maria Luiza',
+            marker: {
+                color: '#123456' // Cor terciária
+            }
+        };
+
+  
+
+        // Layout dos gráficos
+        const layout = {
+            title: 'Funcionários do Maria Luiza',
+            xaxis: {
+                title: 'Horas de Sono',
+                color: '#000000'
+            },
+            yaxis: {
+                title: 'Número de Respostas',
+                color: '#000000'
+            },
+            plot_bgcolor: '#11111', // Cor secundária para fundo do gráfico
+            paper_bgcolor: '#11111', // Cor secundária para fundo do papel
+        };
+
+        // Criar gráfico para Funcionários do Maria Luiza
+        Plotly.newPlot('graficoFuncionarios', [dadosFuncionarios], layout);
+
+        // Atualizar o layout para o gráfico de Brasileiros
+        layout.title = 'Brasileiros';
+
+        // Criar gráfico para Brasileiros
+        Plotly.newPlot('graficoBrasileiros', [dadosBrasileiros], layout);
+    </script>
+</body>
+</html>
